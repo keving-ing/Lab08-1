@@ -4,10 +4,10 @@ public class CoppiaId {
 	
 	int Idp;
 	int Ida;
-	int d;
+	double d;
 	
 	
-	public CoppiaId(int idp, int ida, int d) {
+	public CoppiaId(int idp, int ida, double d) {
 		Idp = idp;
 		Ida = ida;
 		this.d = d;

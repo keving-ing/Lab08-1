@@ -97,9 +97,10 @@ public class ExtFlightDelaysDAO {
 	
 	public List<CoppiaId> getAllAeroportiConnessi(int d)
 	{
-		String sql = "SELECT DISTINCT ORIGIN_AIRPORT_ID, DESTINATION_AIRPORT_ID, distance "
-				+ "FROM flights "
-				+ "WHERE distance > ?";
+		String sql = "SELECT ORIGIN_AIRPORT_ID, DESTINATION_AIRPORT_ID, distance "
+				+ "FROM FLIGHTS "
+				+ "GROUP BY ORIGIN_AIRPORT_ID, DESTINATION_AIRPORT_ID, distance "
+				+ "HAVING AVG(distance) > ?";
 		
 		Connection conn = ConnectDB.getConnection();
 		try
